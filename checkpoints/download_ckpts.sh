@@ -10,7 +10,7 @@
 if command -v wget &> /dev/null; then
     CMD="wget"
 elif command -v curl &> /dev/null; then
-    CMD="curl -L -O"
+    CMD="curl -L -O -k"
 else
     echo "Please install wget or curl to download the checkpoints."
     exit 1

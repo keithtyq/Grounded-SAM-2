@@ -14,7 +14,7 @@ from grounding_dino.groundingdino.util.inference import load_model, load_image, 
 """
 Hyper parameters
 """
-TEXT_PROMPT = "car. tire."
+TEXT_PROMPT = "wall."
 IMG_PATH = "notebooks/images/truck.jpg"
 SAM2_CHECKPOINT = "./checkpoints/sam2.1_hiera_large.pt"
 SAM2_MODEL_CONFIG = "configs/sam2.1/sam2.1_hiera_l.yaml"
@@ -44,7 +44,6 @@ grounding_model = load_model(
     model_checkpoint_path=GROUNDING_DINO_CHECKPOINT,
     device=DEVICE
 )
-
 
 # setup the input image and text prompt for SAM 2 and Grounding DINO
 # VERY important: text queries need to be lowercased + end with a dot
@@ -159,3 +158,5 @@ if DUMP_JSON_RESULTS:
     
     with open(os.path.join(OUTPUT_DIR, "grounded_sam2_local_image_demo_results.json"), "w") as f:
         json.dump(results, f, indent=4)
+
+    print("Script finished successfully!")
